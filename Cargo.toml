@@ -100,8 +100,9 @@ test = false
 targets = ["x86_64-unknown-linux-gnu"]
 
 [profile.release]
-lto = true
+[target.'cfg(not(target_os = "aix"))']
 codegen-units = 1
+lto = true
 
 [[test]]
 name = "integration"
